@@ -64,42 +64,44 @@ namespace CodeWarsTasks
         
         public static string RomanConvert(int number)
         {
-            char[] alphabet = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+            char[] alphabet = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
             string res = "";
             int count = 0;
 
-            while (number > 0)
+            while (n > 0)
             {
-                int end = number % 10;
+                int end = n % 10;
                 string str = "";
 
                 while (end > 0)
                 {
-                    switch (end)
+                    if (end < 4)
                     {
-                        case < 4:
-                            str += alphabet[count];
-                            end--;
-                            break;
-                        case >= 5 and < 9:
-                            str += alphabet[count + 1];
-                            end -= 5;
-                            break;
-                        case 4:
-                            str += alphabet[count] + alphabet[count + 1];
-                            end -= 4;
-                            break;
-                        case 9:
-                            str += alphabet[count] + alphabet[count + 2];
-                            end -= 9;
-                            break;
+                        str += alphabet[count];
+                        end--;
                     }
+                    else if (5 <= end && end < 9)
+                    {
+                        str += alphabet[count + 1];
+                        end -= 5;
+                    }
+                    else if (end == 4)
+                    {
+                        str += alphabet[count].ToString() + alphabet[count + 1].ToString();
+                        end -= 4;
+                    }
+                    else if (end == 9)
+                    {
+                        str += alphabet[count].ToString() + alphabet[count + 2].ToString();
+                        end -= 9;
+                    }
+
                 }
 
                 res = res.Insert(0, str);
 
                 count += 2;
-                number /= 10;
+                n /= 10;
             }
 
             return res;
