@@ -68,9 +68,9 @@ namespace CodeWarsTasks
             string res = "";
             int count = 0;
 
-            while (n > 0)
+            while (number > 0)
             {
-                int end = n % 10;
+                int end = number % 10;
                 string str = "";
 
                 while (end > 0)
@@ -101,7 +101,7 @@ namespace CodeWarsTasks
                 res = res.Insert(0, str);
 
                 count += 2;
-                n /= 10;
+                number /= 10;
             }
 
             return res;
