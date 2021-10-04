@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeWarsTasks
@@ -10,18 +10,18 @@ namespace CodeWarsTasks
             if (string.IsNullOrWhiteSpace(sentence))
                 return sentence;
 
-            string res = sentence[0].ToString();
+            string result = sentence[0].ToString();
 
             for (int i = 1; i < sentence.Length; i++)
             {
                 if (sentence[i] is '_' or '-')
                     continue;
-                res += sentence[i - 1] is '_' or '-'
+                result += sentence[i - 1] is '_' or '-'
                     ? char.ToUpper(sentence[i]).ToString()
                     : sentence[i].ToString();
             }
 
-            return res;
+            return result;
         }
         
         public static int[] ArrayDiff(IEnumerable<int> firstArray, IEnumerable<int> secondArray) =>
@@ -34,7 +34,8 @@ namespace CodeWarsTasks
              * MM = minutes, padded to 2 digits, range: 00 - 59
              * SS = seconds, padded to 2 digits, range: 00 - 59
              */
-            int hours = seconds / 3600, minutes = seconds / 60 - hours * 60;
+            int hours = seconds / 3600;
+            int minutes = seconds / 60 - hours * 60;
             seconds = seconds - minutes * 60 - hours * 60 * 60;
 
             return (hours < 10
@@ -48,8 +49,10 @@ namespace CodeWarsTasks
         
         public static bool IsValidWalk(IReadOnlyCollection<string> walk)
         {
-            int x = 0, y = 0;
+            int x = 0;
+            int y = 0;
             foreach (var item in walk)
+            {
                 _ = item switch
                 {
                     "n" => x++,
@@ -58,6 +61,7 @@ namespace CodeWarsTasks
                     "w" => y--,
                     _ => default
                 };
+            }
 
             return x == 0 && y == 0 && walk.Count == 10;
         }
@@ -65,83 +69,84 @@ namespace CodeWarsTasks
         public static string RomanConvert(int number)
         {
             char[] alphabet = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
-            string res = "";
+            string result = "";
             int count = 0;
 
             while (number > 0)
             {
                 int end = number % 10;
-                string str = "";
+                string temp = "";
 
                 while (end > 0)
                 {
                     if (end < 4)
                     {
-                        str += alphabet[count];
+                        temp += alphabet[count];
                         end--;
                     }
                     else if (5 <= end && end < 9)
                     {
-                        str += alphabet[count + 1];
+                        temp += alphabet[count + 1];
                         end -= 5;
                     }
                     else if (end == 4)
                     {
-                        str += alphabet[count].ToString() + alphabet[count + 1].ToString();
+                        temp += alphabet[count].ToString() + alphabet[count + 1].ToString();
                         end -= 4;
                     }
                     else if (end == 9)
                     {
-                        str += alphabet[count].ToString() + alphabet[count + 2].ToString();
+                        temp += alphabet[count].ToString() + alphabet[count + 2].ToString();
                         end -= 9;
                     }
 
                 }
 
-                res = res.Insert(0, str);
+                result = result.Insert(0, temp);
 
                 count += 2;
                 number /= 10;
             }
 
-            return res;
+            return result;
         }
 
-        public static string Extract(int[] args)
+        public static string Extract(int[] array)
         {
-            string res = "", begin = "";
+            string result = "";
+            string begin = "";
             int count = 0;
             
             
-            for (int i = 0; i < args.Length - 1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                if (begin == "" && args[i] + 1 == args[i + 1])
+                if (begin == "" && array[i] + 1 == array[i + 1])
                 {
-                    begin = args[i].ToString();
+                    begin = array[i].ToString();
                     count++;
                 }
-                else if (args[i] + 1 == args[i + 1])
+                else if (array[i] + 1 == array[i + 1])
                 {
                     count++;
                 }
 
                 switch (count)
                 {
-                    case >= 2 when args[i] + 1 != args[i + 1]:
-                        res += begin + "-" + args[i] + ",";
+                    case >= 2 when array[i] + 1 != array[i + 1]:
+                        result += begin + "-" + array[i] + ",";
                         count = 0;
                         begin = "";
                         break;
-                    case 1 when args[i] + 1 != args[i + 1]:
-                        res += args[i - 1] + "," + args[i] + ",";
+                    case 1 when array[i] + 1 != array[i + 1]:
+                        result += array[i - 1] + "," + array[i] + ",";
                         begin = "";
                         count = 0;
                         break;
                     default:
                     {
-                        if (args[i] + 1 != args[i + 1])
+                        if (array[i] + 1 != array[i + 1])
                         {
-                            res += args[i] + ",";
+                            result += array[i] + ",";
                         }
 
                         break;
@@ -150,17 +155,17 @@ namespace CodeWarsTasks
             }
 
             if (begin != "" && count >= 2)
-                res += begin + "-" + args[args.Length - 1];
-            else if (count == 1 && args.Length - 1 > 0)
+                result += begin + "-" + array[^1];
+            else if (count == 1 && array.Length - 1 > 0)
             {
-                res += args[args.Length - 2] + "," + args[args.Length - 1];
+                result += array[^2] + "," + array[^1];
             } 
-            else if (args.Length > 0)
+            else if (array.Length > 0)
             {
-                res += args[args.Length - 1];
+                result += array[^1];
             }
             
-            return res;
+            return result;
         }
     }
 }
