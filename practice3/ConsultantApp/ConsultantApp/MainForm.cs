@@ -13,7 +13,7 @@ namespace ConsultantApp
 
         private void StartConsultation(object sender, EventArgs e)
         {
-            ConsultantForm form = new ();
+            ConsultantForm form = new (this);
 
             Hide();
             form.Show();

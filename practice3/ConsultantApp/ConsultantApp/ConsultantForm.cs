@@ -4,9 +4,10 @@ namespace ConsultantApp
 {
     public partial class ConsultantForm : Form
     {
-        public ConsultantForm()
+        public ConsultantForm(Control mainForm)
         {
             InitializeComponent();
+            Closing += (_, _) => mainForm.Show();
         }
     }
 }
