@@ -51,7 +51,14 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Include="KnowledgeBaseTest.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\ConsultantApp\ConsultantApp.csproj">
+	    <Project>{fabe1ef7-0f48-4564-9d03-0937a126acd7}</Project>
+	    <Name>ConsultantApp</Name>
+	  </ProjectReference>
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,6 +53,8 @@
         <Compile Include="ConsultantForm.Designer.cs">
           <DependentUpon>ConsultantForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="Diagnosis.cs" />
+        <Compile Include="KnowledgeBase.cs" />
         <Compile Include="MainForm.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -61,6 +63,8 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Question.cs" />
+        <Compile Include="Questionnaire.cs" />
         <EmbeddedResource Include="ConsultantForm.resx">
           <DependentUpon>ConsultantForm.cs</DependentUpon>
         </EmbeddedResource>
