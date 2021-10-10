@@ -146,4 +146,10 @@
 			PublicKeyToken=b77a5c561934e089
 		</value>
 	</resheader>
+	<data name="AuthorsCaption" xml:space="preserve">
+		<value>Создатели программы</value>
+	</data>
+	<data name="Authors" xml:space="preserve">
+		<value>Студенты ИКБО-06-19: Цыпин И., Иноземцев П., Бабышев М.</value>
+	</data>
 </root>

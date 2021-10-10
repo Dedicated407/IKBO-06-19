@@ -59,5 +59,23 @@ namespace ConsultantApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Студенты ИКБО-06-19: Цыпин И., Иноземцев П., Бабышев М..
+        /// </summary>
+        internal static string Authors {
+            get {
+                return ResourceManager.GetString("Authors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создатели программы.
+        /// </summary>
+        internal static string AuthorsCaption {
+            get {
+                return ResourceManager.GetString("AuthorsCaption", resourceCulture);
+            }
+        }
     }
 }

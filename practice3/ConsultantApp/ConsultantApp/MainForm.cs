@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using ConsultantApp.Properties;
 
 namespace ConsultantApp
 {
@@ -7,6 +9,20 @@ namespace ConsultantApp
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void StartConsultation(object sender, EventArgs e)
+        {
+            ConsultantForm form = new ();
+
+            Hide();
+            form.Show();
+        }
+
+        private void ShowAuthors(object sender, EventArgs e)
+        {
+            MessageBox.Show(Resources.Authors, Resources.AuthorsCaption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
