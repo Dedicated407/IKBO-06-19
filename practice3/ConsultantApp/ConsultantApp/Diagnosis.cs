@@ -2,7 +2,8 @@ namespace ConsultantApp
 {
     public enum Diagnosis
     {
-        Healthy,
+        Healthy, // Special value
+        Unknown, // Special value
         Cold,
         SARS,
         // And so on..

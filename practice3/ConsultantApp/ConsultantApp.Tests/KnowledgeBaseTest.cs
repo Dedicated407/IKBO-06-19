@@ -7,7 +7,14 @@ namespace ConsultantApp.Tests
 {
     public class KnowledgeBaseTest
     {
-        private readonly KnowledgeBase _knowledge = new KnowledgeBase(
+        private static readonly HashSet<Question> DangerMarkers = new HashSet<Question>
+        {
+            Cough,
+            Overheat,
+            RunnyNose,
+        };
+        
+        private static readonly KnowledgeBase Knowledge = new KnowledgeBase(
             new Dictionary<Diagnosis, HashSet<Question>>{
                 [Cold] = new HashSet<Question> {
                     Cough,
@@ -16,7 +23,7 @@ namespace ConsultantApp.Tests
                     Cough,
                     Overheat
                 },
-            }
+            }, DangerMarkers
         );
         
         [Fact]
@@ -28,7 +35,7 @@ namespace ConsultantApp.Tests
                 [IsMale] = true,
             };
             
-            var result = _knowledge.GetDiagnose(questionnaire);
+            var result = Knowledge.GetDiagnose(questionnaire);
             var expect = Cold;
             Assert.Equal(result, expect);
         }
@@ -42,7 +49,7 @@ namespace ConsultantApp.Tests
                 [Overheat] = true,
             };
             
-            var result = _knowledge.GetDiagnose(questionnaire);
+            var result = Knowledge.GetDiagnose(questionnaire);
             var expect = SARS;
             Assert.Equal(result, expect);
         }
@@ -56,7 +63,7 @@ namespace ConsultantApp.Tests
                 [AgeOver50] = true,
             };
             
-            var result = _knowledge.GetDiagnose(questionnaire);
+            var result = Knowledge.GetDiagnose(questionnaire);
             var expect = Healthy;
             Assert.Equal(result, expect);
         }
@@ -76,7 +83,7 @@ namespace ConsultantApp.Tests
                     Overheat
                 },
             };
-            var knowledge = new KnowledgeBase(tests);
+            var knowledge = new KnowledgeBase(tests, DangerMarkers);
             foreach (var testcase in tests)
             {
                 var questionnaire = new Questionnaire();
@@ -99,8 +106,8 @@ namespace ConsultantApp.Tests
                 [AgeOver50] = true,
             };
             
-            var result = _knowledge.GetDiagnose(questionnaire);
-            var expect = Healthy; // TODO: Handle Unknown symptoms
+            var result = Knowledge.GetDiagnose(questionnaire);
+            var expect = Unknown;
             Assert.Equal(result, expect);
         }
     }
