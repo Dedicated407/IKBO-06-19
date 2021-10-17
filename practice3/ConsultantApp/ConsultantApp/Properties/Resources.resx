@@ -150,6 +150,12 @@
 		<value>Создатели программы</value>
 	</data>
 	<data name="Authors" xml:space="preserve">
-		<value>Студенты ИКБО-06-19: Цыпин И., Иноземцев П., Бабышев М.</value>
+		<value>Студенты группы ИКБО-06-19: Цыпин Илья Павлович, Иноземцев Павел Андреевич, Бабышев Максим Сергеевич</value>
+	</data>
+	<data name="Diagnosis" xml:space="preserve">
+		<value>Ваш диагноз: </value>
+	</data>
+	<data name="QustionsAreOver" xml:space="preserve">
+		<value>Вопросы кончились, что-то пошло не так...</value>
 	</data>
 </root>

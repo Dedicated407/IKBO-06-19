@@ -5,7 +5,7 @@ namespace ConsultantApp
         Healthy, // Special value
         Unknown, // Special value
         Cold,
-        SARS,
+        Sars,
         // And so on..
     }
 }

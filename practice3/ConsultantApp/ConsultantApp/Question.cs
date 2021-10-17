@@ -7,6 +7,6 @@ namespace ConsultantApp
         Overheat,
         RunnyNose,
         Cough,
-        // And so on...
+        Weak,
     }
 }
