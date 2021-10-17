@@ -51,8 +51,9 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include="KnowledgeBaseTest.cs" />
+		<Compile Include="KnowledgeBaseTests.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="QuestionnaireTests.cs" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\ConsultantApp\ConsultantApp.csproj">

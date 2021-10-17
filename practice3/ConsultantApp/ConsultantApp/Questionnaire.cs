@@ -18,5 +18,14 @@ namespace ConsultantApp
                 }
             }
         }
+
+        public IEnumerable<Question> GetQuestions()
+        {
+            var values = Enum.GetValues(typeof(Question));
+            foreach (var value in values)
+            {
+                yield return (Question) value;
+            }
+        }
     }
 }
