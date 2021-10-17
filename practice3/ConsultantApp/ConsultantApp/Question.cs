@@ -8,5 +8,10 @@ namespace ConsultantApp
         RunnyNose,
         Cough,
         Weak,
+        ChronicDiseases,
+        Pressure,
+        StomachPain,
+        NoSmell,
+        Headache,
     }
 }

@@ -11,7 +11,17 @@ namespace ConsultantApp
     {
         private readonly Dictionary<Question, string> _dictionary = new()
         {
-            {AgeOver50, "Вам больше 50ти лет?"}
+            {AgeOver50, "Вам больше 50ти лет?"},
+            {IsMale, "Ваш пол мужской?"},
+            {Overheat , "У вас есть повышенная температура? (>36.6)"},
+            {RunnyNose , "Есть ли у вас насморк?"},
+            {Cough, "У вас есть кашель?"},
+            {ChronicDiseases, "У вас или у вашей семье были хронические заболевания?"},
+            {Pressure, "Ваше текущее давление в пределах нормы? (120/79 - 127/84)"},
+            {StomachPain, "Испытываете ли вы боль в области живота?"},
+            {NoSmell, "Отсутствует ли у вас запах?"},
+            {Headache, "Испытываете ли вы головную боль?"},
+            {Weak, "Чувствуете ли вы слабость?"},
         };
 
         private readonly Questionnaire _questionnaire = new();
