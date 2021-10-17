@@ -24,5 +24,11 @@ namespace ConsultantApp
             MessageBox.Show(Resources.Authors, Resources.AuthorsCaption,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void ShowAboutProgram(object sender, EventArgs e)
+        {
+            MessageBox.Show(Resources.ContactUs, Resources.ImportantInformation,
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

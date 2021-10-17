@@ -61,7 +61,7 @@ namespace ConsultantApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Студенты ИКБО-06-19: Цыпин И., Иноземцев П., Бабышев М..
+        ///   Looks up a localized string similar to Студенты группы ИКБО-06-19: Цыпин Илья Павлович, Иноземцев Павел Андреевич, Бабышев Максим Сергеевич.
         /// </summary>
         internal static string Authors {
             get {
@@ -75,6 +75,42 @@ namespace ConsultantApp.Properties {
         internal static string AuthorsCaption {
             get {
                 return ResourceManager.GetString("AuthorsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to © 2021, Три мушкетера. Все права защищены.
+        /// </summary>
+        internal static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ваш диагноз: .
+        /// </summary>
+        internal static string Diagnosis {
+            get {
+                return ResourceManager.GetString("Diagnosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to О программе.
+        /// </summary>
+        internal static string ImportantInformation {
+            get {
+                return ResourceManager.GetString("ImportantInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вопросы кончились, что-то пошло не так....
+        /// </summary>
+        internal static string QustionsAreOver {
+            get {
+                return ResourceManager.GetString("QustionsAreOver", resourceCulture);
             }
         }
     }

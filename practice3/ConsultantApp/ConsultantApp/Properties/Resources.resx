@@ -152,6 +152,13 @@
 	<data name="Authors" xml:space="preserve">
 		<value>Студенты группы ИКБО-06-19: Цыпин Илья Павлович, Иноземцев Павел Андреевич, Бабышев Максим Сергеевич</value>
 	</data>
+	<data name="ImportantInformation" xml:space="preserve">
+		<value>О программе</value>
+	</data>
+	<data name="ContactUs" xml:space="preserve">
+		<value>Чтобы связаться с разработчиками, напишите на эту почту: ilyaboy@list.ru.</value>
+		<value>© 2021, Три мушкетера. Все права защищены</value>
+	</data>
 	<data name="Diagnosis" xml:space="preserve">
 		<value>Ваш диагноз: </value>
 	</data>
