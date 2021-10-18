@@ -40,7 +40,7 @@ namespace ConsultantApp
             // buttonYes
             // 
             this.buttonYes.Location = new System.Drawing.Point(53, 374);
-            this.buttonYes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonYes.Margin = new System.Windows.Forms.Padding(4);
             this.buttonYes.Name = "buttonYes";
             this.buttonYes.Size = new System.Drawing.Size(88, 44);
             this.buttonYes.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace ConsultantApp
             // buttonNo
             // 
             this.buttonNo.Location = new System.Drawing.Point(653, 374);
-            this.buttonNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNo.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNo.Name = "buttonNo";
             this.buttonNo.Size = new System.Drawing.Size(88, 44);
             this.buttonNo.TabIndex = 1;

@@ -17,17 +17,20 @@ namespace ConsultantApp
         public Diagnosis GetDiagnose(Questionnaire questionnaire, byte threshold = 90)
         {
             var diagnose = Diagnosis.Healthy;
-            var max = threshold;
+            var maxPercentage = threshold;
             foreach (var knowledge in _knowledge)
             {
                 var matchesCount = knowledge.Value.Count(question => questionnaire[question]);
-                var matchesPercentage = (byte) (100 * matchesCount / knowledge.Value.Count);
-                if (matchesPercentage >= max)
+                var percentageOfMatches = (byte) (100 * matchesCount / knowledge.Value.Count);
+                if (percentageOfMatches < maxPercentage)
                 {
-                    diagnose = knowledge.Key;
-                    max = matchesPercentage;
+                    continue;
                 }
+
+                diagnose = knowledge.Key;
+                maxPercentage = percentageOfMatches;
             }
+
             if (diagnose == Diagnosis.Healthy)
             {
                 if (_dangerMarkers.Any(question => questionnaire[question]))
@@ -35,6 +38,7 @@ namespace ConsultantApp
                     return Diagnosis.Unknown;
                 }
             }
+
             return diagnose;
         }
     }
