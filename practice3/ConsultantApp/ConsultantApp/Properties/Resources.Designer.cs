@@ -113,14 +113,5 @@ namespace ConsultantApp.Properties {
                 return ResourceManager.GetString("QustionsAreOver", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вам нужно обязательно сходить к врачу, сложно найти конкретный диагноз..
-        /// </summary>
-        internal static string UnknownDiagnos {
-            get {
-                return ResourceManager.GetString("UnknownDiagnos", resourceCulture);
-            }
-        }
     }
 }

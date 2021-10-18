@@ -9,7 +9,7 @@ namespace ConsultantApp
 {
     public partial class ConsultantForm : Form
     {
-        private readonly Dictionary<Question, string> _dictionary = new()
+        private readonly Dictionary<Question, string> _dictionaryQuestions = new()
         {
             {AgeOver50, "Вам больше 50ти лет?"},
             {IsMale, "Ваш пол мужской?"},
@@ -28,6 +28,17 @@ namespace ConsultantApp
             {IsSmoke, "Употребляете вы никотиновые средства?"},
             {FattyFood, "Часто ли вы едите жирную еду?"},
             {PhysicalActivity, "Мало ли в вашей жизни физической активности?"}
+        };
+
+        private readonly Dictionary<Diagnosis, string> _dictionaryDiagnosis = new()
+        {
+            {Healthy, "Вы здоровы!"},
+            {Unknown, "Нужно обязательно сходить к врачу, сложно найти конкретный диагноз."},
+            {Cold, "простуда!"},
+            {Sars, "ОРВИ, скорее обратитесь в поликлинику!"},
+            {HeartFailure, "сердечная недостаточность"},
+            {MetabolicDisorders, "нарушение обмена веществ"},
+            {CoronaVirus, "короновирус...."},
         };
 
         private readonly Questionnaire _questionnaire = new();
@@ -91,7 +102,7 @@ namespace ConsultantApp
             {
                 return;
             }
-            labelQuestion.Text = _dictionary[_questionEnumerator.Current];
+            labelQuestion.Text = _dictionaryQuestions[_questionEnumerator.Current];
         }
 
         private void SetAnswer(bool isAnswerPositive)
@@ -99,27 +110,17 @@ namespace ConsultantApp
             _questionnaire[_questionEnumerator.Current] = isAnswerPositive;
             if (!_questionEnumerator.MoveNext())
             {
-                var temp = Knowledge.GetDiagnose(_questionnaire);
-                
-                if (temp == Unknown)
-                {
-                    labelQuestion.Text = Resources.Diagnosis + Resources.UnknownDiagnos;
-                }
-                else
-                {
-                    labelQuestion.Text = Resources.Diagnosis + temp;
-                }
-
+                labelQuestion.Text = Resources.Diagnosis + _dictionaryDiagnosis[Knowledge.GetDiagnose(_questionnaire)];
                 return;
             }
 
-            if (!_dictionary.ContainsKey(_questionEnumerator.Current))
+            if (!_dictionaryQuestions.ContainsKey(_questionEnumerator.Current))
             {
                 labelQuestion.Text = Resources.QustionsAreOver;
                 return;
             }
 
-            labelQuestion.Text = _dictionary[_questionEnumerator.Current];
+            labelQuestion.Text = _dictionaryQuestions[_questionEnumerator.Current];
         }
         
         private void ClickButtonYes(object sender, EventArgs e) => SetAnswer(true);
