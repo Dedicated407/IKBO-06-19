@@ -7,11 +7,17 @@ namespace ConsultantApp
         Overheat,
         RunnyNose,
         Cough,
-        Weak,
         ChronicDiseases,
         Pressure,
         StomachPain,
         NoSmell,
         Headache,
+        Weak,
+        ShortnessOfBreath,
+        IsSweating,
+        Alcoholism,
+        IsSmoke,
+        FattyFood,
+        PhysicalActivity
     }
 }

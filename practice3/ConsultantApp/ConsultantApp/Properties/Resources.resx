@@ -165,4 +165,7 @@
 	<data name="QustionsAreOver" xml:space="preserve">
 		<value>Вопросы кончились, что-то пошло не так...</value>
 	</data>
+	<data name="UnknownDiagnos" xml:space="preserve">
+		<value>Вам нужно обязательно сходить к врачу, сложно найти конкретный диагноз.</value>
+	</data>
 </root>

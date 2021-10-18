@@ -22,6 +22,12 @@ namespace ConsultantApp
             {NoSmell, "Отсутствует ли у вас запах?"},
             {Headache, "Испытываете ли вы головную боль?"},
             {Weak, "Чувствуете ли вы слабость?"},
+            {ShortnessOfBreath, "Испытываете ли вы затруднения с дыханием при физической нагрузке или в покое?"},
+            {IsSweating, "Есть ли у вас потливость при малой физической нагрузке?"},
+            {Alcoholism, "Часто ли вы употребляете алкогольные напитки?"},
+            {IsSmoke, "Употребляете вы никотиновые средства?"},
+            {FattyFood, "Часто ли вы едите жирную еду?"},
+            {PhysicalActivity, "Мало ли в вашей жизни физической активности?"}
         };
 
         private readonly Questionnaire _questionnaire = new();
@@ -43,12 +49,36 @@ namespace ConsultantApp
                     RunnyNose,
                     Weak
                 },
+                [HeartFailure] = new()
+                {
+                    Pressure,
+                    Weak,
+                    ShortnessOfBreath,
+                    IsSweating,
+                    FattyFood,
+                    PhysicalActivity
+                },
+                [MetabolicDisorders] = new()
+                {
+                    ShortnessOfBreath,
+                    Alcoholism,
+                    FattyFood,
+                    PhysicalActivity
+                },
+                [CoronaVirus] = new()
+                {
+                    Overheat,
+                    NoSmell,
+                    Weak,
+                    Headache,
+                    ShortnessOfBreath               
+                }
             }, new HashSet<Question> 
             {
                 Cough,
                 Overheat,
                 RunnyNose,
-                Weak
+                ShortnessOfBreath
             }
         );
         
@@ -69,7 +99,17 @@ namespace ConsultantApp
             _questionnaire[_questionEnumerator.Current] = isAnswerPositive;
             if (!_questionEnumerator.MoveNext())
             {
-                labelQuestion.Text = Resources.Diagnosis + Knowledge.GetDiagnose(_questionnaire);
+                var temp = Knowledge.GetDiagnose(_questionnaire);
+                
+                if (temp == Unknown)
+                {
+                    labelQuestion.Text = Resources.Diagnosis + Resources.UnknownDiagnos;
+                }
+                else
+                {
+                    labelQuestion.Text = Resources.Diagnosis + temp;
+                }
+
                 return;
             }
 
